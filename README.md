@@ -5,10 +5,20 @@ S# Experiment – 1
 
 ## AIM :
 
-To design a Common Source (CS) amplifier using 180nm NMOS technology in LTspice and to perform DC, Transient and AC analysis as per the given specifications.
+To design a Common Source (CS) amplifier using NMOSFET in tsmc 180nm tech.lib in LTspice and to perform DC, Transient and AC analysis as per the given specifications.
+## Introduction to Common Source Amplifier:
 
+The Common Source (CS) amplifier is a fundamental single-transistor amplifier widely used in analog electronics. It provides voltage amplification with high input impedance and moderate output impedance.
+
+In a CS amplifier:
+
+- The input signal is applied to the gate of the MOSFET.
+- The output signal is taken from the drain, producing a phase-inverted amplified output.
+- The source terminal is typically connected to ground (common), hence the name Common Source.
+
+This configuration is popular for small-signal amplification in analog circuits due to its simplicity, high gain, and ease of integration in CMOS technology.
 ---
-## Design Specification :
+## Design Specifications :
 | Parameter        | Symbol | Value       | Unit | Notes                   |
 | ---------------- | ------ | ----------- | ---- | ----------------------- |
 | Supply Voltage   | VDD    | 2         | V    | Power supply            |
@@ -29,44 +39,65 @@ To design a Common Source (CS) amplifier using 180nm NMOS technology in LTspice 
 - Ground and connecting wires  
 ---
 
-## CIRCUIT DIAGRAM :
+## Circuit Description :
 
-The Common Source amplifier circuit was designed in LTspice using 180nm NMOS technology.  
-The drain resistor RD is connected between VDD and drain terminal.  
-The input signal is applied at the gate terminal and output is taken from the drain.  
+The circuit was designed using 180 nm NMOS technology in LTspice.
 
+- Drain Resistor (RD): Connected between VDD and the drain terminal. It controls the output voltage swing and gain.
+- Input Signal: Applied to the gate terminal of the NMOS transistor.
+- Output Signal: Taken from the drain terminal.
+- Source Terminal: Usually connected to ground (common reference).
 
 ![CS Amplifier Circuit](circuit.png)
 
 ---
+## Theory :
 
-## THEORY :
+The **Common Source (CS) amplifier** is one of the most fundamental and widely used MOSFET amplifier configurations. It is primarily used for **voltage amplification** in analog circuits.  
 
-A Common Source (CS) amplifier is one of the fundamental MOSFET amplifier configurations.  
-In this configuration, the source terminal is grounded, the input is applied at the gate and the output is taken from the drain.
-The amplifier provides voltage gain with a phase inversion of 180 degrees between input and output.  
-For proper amplification, the MOSFET must operate in the saturation region.  
-Therefore, the Q-point is fixed such that VDS ≈ VDD/2 to allow maximum symmetrical output swing.
+### Circuit Configuration
+- The **source terminal** is connected to **ground** (common reference).  
+- The **input signal** is applied to the **gate terminal**.  
+- The **output signal** is taken from the **drain terminal**.  
+- A **drain resistor (RD)** is connected between **VDD** and the drain terminal to control the gain and output swing.  
 
+### Operating Principle
+1. The input voltage at the gate (**Vgs**) controls the **drain current (Id)**.  
+2. Changes in **Id** produce a voltage drop across **RD**, generating the **amplified output voltage** at the drain.  
+3. The output is **phase-inverted** relative to the input (180° phase shift).  
 
-## PROCEDURE :
+### Biasing and Q-Point
+- Proper amplification requires the MOSFET to operate in the **saturation region**.  
+- The **Q-point** (operating point) is usually set such that **VDS ≈ VDD / 2**, ensuring **maximum symmetrical output swing** without distortion.  
 
-1. The 180nm NMOS model file (tsmc018.lib) was included in LTspice using the .include directive.
+### Characteristics
+- High voltage gain.  
+- Moderate to high input impedance.  
+- Output impedance depends on RD and MOSFET parameters.  
+- Phase inversion of 180° between input and output.  
 
-2. The Common Source amplifier circuit was constructed with:
-   - VDD = 1.5 V  
-   - Drain resistor RD ≈ 2.245 kΩ  
-   - NMOS transistor with L = 180 nm and W = 2.5 µm    
+### Applications
+- Small-signal voltage amplification.  
+- Analog signal processing circuits.  
+- Front-end amplifier stages for sensors and ADCs.  
+- RF and audio amplifier stages in integrated circuits.
+- 
+## Procedure :
 
-3. DC analysis was performed using the .op and .dc commands to determine the Q-point by setting VDS ≈ VDD/2.
+1. The **180 nm NMOS model file** (`tsmc018.lib`) was included in LTspice using the `.include` directive.  
 
-4. RD was adjusted and W/L ratio was varied to achieve the required drain current under the power constraint (P ≤ 0.5 mW).
+2. The **Common Source amplifier circuit** was built with the following parameters:  
+   - Supply voltage: **VDD = 2 V**  
+   - Drain resistor: **RD ≈ 5 kΩ**  
+   - NMOS transistor: **L = 180 nm**, **W =1.1 µm**  
 
-5. Transient analysis (.tran 5m) was carried out using a sine input SINE(0.9 10m 1k) to observe linear and non-linear behavior.
+3. **DC analysis** was performed using `.op` and `.dc` commands to determine the **Q-point**, targeting **VDS ≈ VDD / 2** for maximum output swing.  
 
-6. AC analysis (.ac dec 10 0.1 100G) was performed to obtain frequency response and determine gain and bandwidth parameters.
+4. The **drain resistor (RD)** and **W/L ratio** of the MOSFET were adjusted to achieve the desired **drain current** while keeping the **power consumption ≤ 1.2 mW**.  
 
-----
+5. **Transient analysis** (`.tran 5m`) was carried out using a sine input `SINE(0.9 10m 1k)` to observe both **linear and non-linear behavior** of the amplifier.  
+
+6. **AC analysis** (`.ac dec 10 0.1 100G`) was performed to obtain the **frequency response**, including the amplifier's **gain** and **bandwidth**.
 
 ## DC ANALYSIS AND DESIGN CALCULATIONS :
 
@@ -79,10 +110,10 @@ The device parameters were extracted from the model file (tsmc018.lib).
  
 - Vth = 0.366 V  
 - Tox = 4.1 × 10⁻⁹ m  
-- μn (U0) = 273.80 cm²/V·s  
+- μn (U0) = 273.809 cm²/V·s  
 - εr (SiO₂) = 3.9  
 - ε0 = 8.854 × 10⁻¹² F/m  
-- Power constraint: P ≤ 0.5 mW  
+- Power constraint: P ≤ 1.2 mW  
 
 Since the input DC bias at the gate is 0.9 V,
 
@@ -97,13 +128,13 @@ Using:
 
 P = V × I  
 
-0.5 × 10⁻³ = 1.5 × ID  
+0.4 × 10⁻³ = 2 × ID  
 
-ID = (0.5 × 10⁻³) / 1.5  
+ID = (0.4 × 10⁻³) /2 
 
-ID ≈ 3.34 × 10⁻⁴ A  
+ID ≈ 2.00 × 10⁻⁴ A  
 
-ID ≈ 0.334 mA  
+ID ≈ 0.200 mA  
 
 ### Step 2: Fix Q-Point
 
@@ -111,17 +142,17 @@ For maximum symmetrical swing:
 
 VDS = VDD / 2  
 
-VDS = 1.5 / 2  
+VDS = 2 / 2  
 
-VDS ≈ 0.75 V  
+VDS ≈ 1 V  
 
 ### Step 3: Calculate Drain Resistor (RD)
 
 RD = (VDD − VDS) / ID  
 
-RD = (1.5 − 0.75) / (3.34 × 10⁻⁴)  
+RD = (2 − 1) / (2 × 10⁻⁴)  
 
-RD ≈ 2.245 kΩ  
+RD ≈ 5 kΩ  
 
 ### Step 4: Calculate Oxide Capacitance (Cox)
 
@@ -139,7 +170,7 @@ Cox = εox / Tox
 
 Cox = (3.45 × 10⁻¹¹) / (4.1 × 10⁻⁹)  
 
-Cox ≈ 8.41 × 10⁻³ F/m²  
+Cox ≈ 8.42 × 10⁻³ F/m²  
 
 ### Step 5: Calculate Process Transconductance Parameter (kn')
 
@@ -154,7 +185,7 @@ kn' = μn × Cox
 
 kn' = 0.02738 × (8.41 × 10⁻³)  
 
-kn' ≈ 2.30 × 10⁻⁴ A/V²  
+kn' ≈ 2.306 × 10⁻⁴ A/V²  
 
 ### Step 6: Calculate Required Transistor Width (W)
 
@@ -173,23 +204,23 @@ L = 180 nm = 180 × 10⁻⁹ m
 
 Substituting:
 
-3.34 × 10⁻⁴ = (2.30 × 10⁻⁴ / 2) × (W / 180 × 10⁻⁹) × (0.534)²  
+2.00 × 10⁻⁴ = (2.30 × 10⁻⁴ / 2) × (W / 180 × 10⁻⁹) × (0.534)²  
 
 Solving,
 
-W ≈ 1.83 µm  
+W ≈ 1.1 µm  
 
 After simulation tuning to obtain accurate Q-point:
 
 Final selected width:
 
-W = 2.5 µm  
+W = 1.5 µm  
 
 
 ### DC Operating Point from LTspice
 
-ID ≈ 0.33 mA  
-VDS ≈ 0.75 V  
+ID ≈ 0.2 mA  
+VDS ≈ 1.0 V  
 
 Thus, the Q-point is successfully fixed near mid-supply.
 ### DC Simulation Result
@@ -202,7 +233,7 @@ Thus, the Q-point is successfully fixed near mid-supply.
 
 ### (a) Effect of Varying RD (For Fixed W/L)
 
-The width and length of the transistor were kept constant (W = 2.5 µm, L = 180 nm).  
+The width and length of the transistor were kept constant (W = 1.5 µm, L = 180 nm).  
 The drain resistor RD was varied to observe its effect on the Q-point.
 
 Observation:
@@ -424,6 +455,47 @@ From AC plot (with CL = 1 pF):
 8. Adding load capacitance (1 pF) reduced bandwidth while maintaining nearly the same midband gain.
 
 9. Overall, simulation results closely agree with theoretical expectations, validating the design methodology.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
