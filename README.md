@@ -8,14 +8,14 @@ S# Experiment – 1
 To design a Common Source (CS) amplifier using 180nm NMOS technology in LTspice and to perform DC, Transient and AC analysis as per the given specifications.
 
 ---
-
-## GIVEN SPECIFICATIONS :
-
-- VDD = 1.5 V  
-- Power constraint P ≤ 0.5 mW  
-- Load capacitor CL = 1 pF  
-- Channel length L = 180 nm  
-- Technology : 180 nm TSMC library  
+## Design Specification :
+| Parameter        | Symbol | Value       | Unit | Notes                   |
+| ---------------- | ------ | ----------- | ---- | ----------------------- |
+| Supply Voltage   | VDD    | 2         | V    | Power supply            |
+| Power Constraint | P      | ≤ 1.2       | mW   | Maximum allowable power |
+| Load Capacitance | CL     | 10           | pF   | Output load capacitor   |
+| Channel Length   | L      | 180         | nm   | MOSFET channel length   |
+| Technology Node  | —      | 180 nm TSMC | —    | CMOS process technology |
 
 ---
 
