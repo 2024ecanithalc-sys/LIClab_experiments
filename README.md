@@ -243,11 +243,11 @@ Observation:
 - Drain current slightly reduces for larger RD values.
 - Proper RD selection is required to maintain VDS ≈ VDD/2.
 
-Thus, RD ≈ 2.245 kΩ was selected to obtain VDS ≈ 0.75 V.
+Thus, RD ≈ 5 kΩ was selected to obtain VDS ≈ 1V.
 
 ### DC Sweep Result
 
-The DC sweep of input voltage was performed from 0 V to 1.5 V to observe variation in supply current and verify the power constraint.
+The DC sweep of input voltage was performed from 0 V to 2 V to observe variation in supply current and verify the power constraint.
 
 ![DC Sweep Current](dc_sweep.png)
 
@@ -256,7 +256,7 @@ The DC sweep of input voltage was performed from 0 V to 1.5 V to observe variati
 
 ### (b) Effect of Varying W (For Fixed RD)
 
-The drain resistor was kept constant at RD ≈ 2.245 kΩ.  
+The drain resistor was kept constant at RD ≈ 5 kΩ.  
 The transistor width (W) was varied to analyze its effect on drain current.
 
 Observation:
@@ -265,10 +265,10 @@ Observation:
 - Larger W shifts the Q-point due to higher ID.
 - Smaller W reduces ID and moves VDS closer to VDD.
 
-From simulation tuning, W = 2.5 µm provided the required drain current (≈ 0.33 mA) and correct biasing.
+From simulation tuning, W = 1.5 µm provided the required drain current (≈ 0.2 mA) and correct biasing.
 ### DC Transfer Characteristic (Vout vs Vin)
 
-The DC sweep was performed by varying input voltage from 0 V to 1.5 V.  
+The DC sweep was performed by varying input voltage from 0 V to 2  V.  
 The variation of output voltage with respect to input voltage is shown below.
 
 ![DC Transfer Curve](dc_transfer.png)
@@ -299,9 +299,9 @@ A sine input of SINE(0.9 10m 1k) was applied at the gate terminal.
 ### Observation
 
 - Output waveform is inverted with respect to input (≈ 180° phase shift).
-- Peak output voltage ≈ 780 mV
-- Peak input variation ≈ 10 mV
-- Voltage gain ≈ 2.08
+- Peak output voltage ≈ 590 mV
+- Peak input variation ≈ 19 mV
+- Voltage gain ≈ 3
 - The amplifier operates in saturation region.
 
 Thus, transient analysis confirms proper biasing and amplification.
@@ -318,32 +318,32 @@ Peak-to-peak values were measured from the graph.
 
 Output voltage:
 
-Vout(max) = 779.52 mV  
-Vout(min) = 739.08 mV  
+Vout(max) = 1.032V  
+Vout(min) = 0.973 V  
 
-Vout(pp) = 779.52 − 739.08  
-Vout(pp) = 40.44 mV  
+Vout(pp) =   1.032V -0.973 V
+Vout(pp) = 0.059 V 
 
 Input voltage:
 
-Vin(max) = 909.56 mV  
-Vin(min) = 890.187 mV  
+Vin(max) = 0.91  V  
+Vin(min) = 0.8903  V  
 
-Vin(pp) = 909.56 − 890.187  
-Vin(pp) = 19.373 mV  
+Vin(pp) = 0.91  V - 0.8903  V  
+Vin(pp) = 0.0197  
 
 Therefore,
 Av = Vout(pp) / Vin(pp)  
 
-Av = 40.44 / 19.373  
-Av ≈ 2.0877  
+Av =  0.059 V  / 0.0197V  
+Av ≈ 3 
 
 Gain in dB:
 
 Av(dB) = 20 log(Av)  
 
-Av(dB) = 20 log(2.0877)  
-Av(dB) ≈ 6.39 dB  
+Av(dB) = 20 log(3)  
+Av(dB) ≈ 9054 DB  
 
 ### Theoretical Gain Calculation
 
@@ -354,10 +354,10 @@ gm = 2ID / (VGS − Vth)
 
 Given:
 
-ID = 0.33 mA  
+ID = 0.2 mA  
 VGS = 0.9 V  
 Vth = 0.366 V  
-RD = 2.245 kΩ  
+RD = 5 kΩ  
 
 Overdrive voltage:
 
@@ -365,21 +365,21 @@ Vov = VGS − Vth = 0.9 − 0.366 = 0.534 V
 
 Transconductance:
 
-gm = (2 × 0.33 × 10⁻³) / 0.534  
-gm ≈ 1.236 mS  
+gm = (2 × 0.2 × 10⁻³) / 0.534  
+gm ≈ 0.75 mS  
 
 Therefore,
 
 Av = gm × RD  
-Av = (1.236 × 10⁻³) × (2245)  
-Av ≈ 2.78  
+Av = (0.75 × 10⁻³) × (5000)  
+Av ≈ 3.7 
 
 Gain in dB:
 
-Av(dB) = 20 log(2.78)  
-Av(dB) ≈ 8.88 dB  
+Av(dB) = 20 log(3.7)  
+Av(dB) ≈ 11.36 DB 
 
-The simulated gain (2.087) is lower than the theoretical value due to channel length modulation, output resistance effects, and other non-ideal device characteristics.
+The simulated gain (3 ) is lower than the theoretical(3.7) value due to channel length modulation, output resistance effects, and other non-ideal device characteristics.
 
 ----
 
@@ -395,24 +395,24 @@ The frequency response was obtained to determine gain and bandwidth.
 
 - The amplifier shows constant gain in the midband region.
 - At higher frequencies, gain decreases due to parasitic capacitances.
-- The presence of load capacitor (CL = 1 pF) reduces the bandwidth.
+- The presence of load capacitor (CL = 10 pF) reduces the bandwidth.
 
 ### Extracted Parameters
 
 From AC plot (with CL = 1 pF):
 
-- Midband gain ≈ 2.087
-- Gain in dB ≈ 6.39 dB
-- 3 dB bandwidth ≈ 89.65 MHz
+- Midband gain ≈ 3
+- Gain in dB ≈ 9.54 dB
+- 3 dB bandwidth ≈ 56.4 GHz
 - Unity Gain Bandwidth (UGB) ≈ 150.23 MHz
-- GBP ≈ 2.087 × 89.65 MHz
-     ≈ 187 MHz (approx)
+- GBP ≈ 3 × 56.4 GHz
+     ≈  MHz (approx)
 
 ### AC Response Without Load Capacitor
 
 ![AC Without Load](ac_without_cl.png)
 
-### AC Response With Load Capacitor (CL = 1 pF)
+### AC Response With Load Capacitor (CL = 10 pF)
 
 ![AC With Load](ac_with_cl.png)
 
@@ -424,13 +424,13 @@ From AC plot (with CL = 1 pF):
 
 | Parameter | Theoretical Value | Practical (Simulation) Value | Reason for Variation |
 |------------|------------------|-----------------------------|----------------------|
-| Drain Current (ID) | ≈ 0.334 mA | ≈ 0.33 mA | Minor rounding and model accuracy differences |
-| VDS (Q-point) | 0.75 V | ≈ 0.75 V | Slight deviation due to transistor model non-idealities |
-| Drain Resistor (RD) | 2.245 kΩ | 2.245 kΩ | Directly calculated from design equation |
-| Transistor Width (W) | 1.83 µm (calculated) | 2.5 µm (adjusted) | Width tuned in simulation to achieve exact Q-point |
-| Voltage Gain (Av) | 2.808 | 2.087 | Channel length modulation and output resistance effects |
-| Gain (dB) | 8.94 dB | 6.39 dB | Practical gain reduced due to non-ideal device behavior |
-| 3 dB Bandwidth | — | 89.65 MHz | Limited by parasitic capacitances |
+| Drain Current (ID) | ≈ 0.2 mA | ≈ 0.2 mA | Minor rounding and model accuracy differences |
+| VDS (Q-point) | 1 V | ≈ 1 V | Slight deviation due to transistor model non-idealities |
+| Drain Resistor (RD) | 5 kΩ | 5 kΩ | Directly calculated from design equation |
+| Transistor Width (W) | 1.1 µm (calculated) |1.5 µm (adjusted) | Width tuned in simulation to achieve exact Q-point |
+| Voltage Gain (Av) | 3 | 3.7 | Channel length modulation and output resistance effects |
+| Gain (dB) | 9.54 dB | 11.36 dB | Practical gain reduced due to non-ideal device behavior |
+| 3 dB Bandwidth | — | 56  GHz | Limited by parasitic capacitances |
 | Unity Gain Bandwidth (UGB) | — | 150 MHz | Determined by dominant pole and device capacitances |
 | Gain Bandwidth Product (GBP) | — | ≈ 187 MHz | Product of midband gain and bandwidth |
 
@@ -440,63 +440,19 @@ From AC plot (with CL = 1 pF):
 
 1. The Common Source (CS) amplifier was successfully designed using 180 nm NMOS technology under the given power constraint of 0.5 mW.
 
-2. The Q-point was fixed at VDS ≈ VDD/2 (≈ 0.75 V), ensuring maximum symmetrical output swing.
+2. The Q-point was fixed at VDS ≈ VDD/2 (≈ 1 V), ensuring maximum symmetrical output swing.
 
-3. The calculated drain current (0.334 mA) closely matched the simulated value (≈ 0.33 mA), validating the DC design.
+3. The calculated drain current (0.2 mA) closely matched the simulated value (≈ 0.2 mA), validating the DC design.
 
 4. Transient analysis confirmed voltage amplification with 180° phase inversion.
 
-5. The practical gain (≈ 2.087 or 6.39 dB) was slightly lower than theoretical gain due to channel length modulation and non-ideal device effects.
+5. The practical gain (≈ 3 or 9.54 dB) was slightly lower than theoretical gain due to channel length modulation and non-ideal device effects.
 
-6. AC analysis showed a midband gain of ≈ 2.087 with 3 dB bandwidth ≈ 89.65 MHz.
+6. AC analysis showed a midband gain of ≈  3 with 3 dB bandwidth ≈ 56.4  GHz.
 
 7. The Unity Gain Bandwidth (UGB) was ≈ 150 MHz.
 
-8. Adding load capacitance (1 pF) reduced bandwidth while maintaining nearly the same midband gain.
+8. Adding load capacitance (10 pF) reduced bandwidth while maintaining nearly the same midband gain.
 
 9. Overall, simulation results closely agree with theoretical expectations, validating the design methodology.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
