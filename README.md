@@ -1,4 +1,3 @@
-
 S# Experiment – 1  
 ## DC, Transient and AC Analysis of Common Source Amplifier using 180nm NMOS in LTspice
 
