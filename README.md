@@ -270,7 +270,8 @@ From simulation tuning, W = 1.5 µm provided the required drain current (≈ 0.2
 The DC sweep was performed by varying input voltage from 0 V to 2  V.  
 The variation of output voltage with respect to input voltage is shown below.
 
-![DC Transfer Curve](dc_transfer.png)
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/DCsweep.jpeg?raw=true)
+
 
 ---
 
