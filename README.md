@@ -49,7 +49,6 @@ The circuit was designed using 180 nm NMOS technology in LTspice.
 - Source Terminal: Usually connected to ground (common reference).
 
 ![CS Amplifier Circuit](circuit.png)
-
 ---
 ## Theory :
 
