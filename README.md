@@ -292,7 +292,7 @@ A sine input of SINE(0.9 10m 1k) was applied at the gate terminal.
 
 ### Combined Input and Output Waveforms
 
-(![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/Transient%20analysis.jpeg?raw=true)
+![Image description](![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/Transient%20analysis.jpeg?raw=true)
 
 
 ### Observation
@@ -409,7 +409,7 @@ From AC plot (with CL = 1 pF):
 
 ### AC Response Without Load Capacitor
 
-![AC Without Load](ac_without_cl.png)
+(https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/AC%20analysis.jpeg?raw=true)
 
 ### AC Response With Load Capacitor (CL = 10 pF)
 
