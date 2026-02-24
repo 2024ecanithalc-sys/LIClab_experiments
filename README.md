@@ -224,7 +224,7 @@ VDS ≈ 1.0 V
 Thus, the Q-point is successfully fixed near mid-supply.
 ### DC Simulation Result
 
-![DC Operating Point](dc.png)
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/Operating%20point.jpeg?raw=true)
 
 -----
 
