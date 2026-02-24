@@ -292,7 +292,7 @@ A sine input of SINE(0.9 10m 1k) was applied at the gate terminal.
 
 ### Combined Input and Output Waveforms
 
-![Transient Combined Vin and Vout](Transient_Vin_Vout.png)
+(![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/Transient%20analysis.jpeg?raw=true)
 
 
 ### Observation
