@@ -409,7 +409,7 @@ From AC plot (with CL = 1 pF):
 
 ### AC Response Without Load Capacitor
 
-(https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/AC%20analysis.jpeg?raw=true)
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/AC%20analysis.jpeg?raw=true)
 
 ### AC Response With Load Capacitor (CL = 10 pF)
 
