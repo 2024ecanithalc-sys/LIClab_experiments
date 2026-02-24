@@ -414,7 +414,6 @@ From AC plot (with CL = 10 pF):
 
 ### AC Response With Load Capacitor (CL = 10 pF)
 
-![AC Response With Load Capacitor](AC_With_CL_Final.png)
 
 ----
 
