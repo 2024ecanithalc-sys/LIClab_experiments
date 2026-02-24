@@ -48,7 +48,7 @@ The circuit was designed using 180 nm NMOS technology in LTspice.
 - Output Signal: Taken from the drain terminal.
 - Source Terminal: Usually connected to ground (common reference).
 
-![CS Amplifier Circuit](circuit.png)
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/circuit%20diagram.jpeg?raw=true)
 ---
 ## Theory :
 
