@@ -283,14 +283,6 @@ Transient simulation was performed using:
 
 A sine input of SINE(0.9 10m 1k) was applied at the gate terminal.
 
-### Input Waveform (Vin)
-
-![Input Waveform](vin_transient.png)
-
-### Output Waveform (Vout)
-
-![Output Waveform](vout_transient.png)
-
 ### Combined Input and Output Waveforms
 
 ![Image description](![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/Transient%20analysis.jpeg?raw=true)
@@ -343,7 +335,7 @@ Gain in dB:
 Av(dB) = 20 log(Av)  
 
 Av(dB) = 20 log(3)  
-Av(dB) ≈ 9054 DB  
+Av(dB) ≈ 9.54 DB  
 
 ### Theoretical Gain Calculation
 
@@ -391,6 +383,15 @@ AC analysis was performed using:
 
 The frequency response was obtained to determine gain and bandwidth.
 
+## Circuit Diagram (With capacitor):
+
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/with%20capacitor.jpeg?raw=true)
+
+
+ ## Output curve of AC analysis with capacitor
+
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/with%20C%20ac%20analysis.jpeg?raw=true)
+
 ### Observations
 
 - The amplifier shows constant gain in the midband region.
@@ -399,22 +400,19 @@ The frequency response was obtained to determine gain and bandwidth.
 
 ### Extracted Parameters
 
-From AC plot (with CL = 1 pF):
+From AC plot (with CL = 10 pF):
 
 - Midband gain ≈ 3
 - Gain in dB ≈ 9.54 dB
 - 3 dB bandwidth ≈ 56.4 GHz
-- Unity Gain Bandwidth (UGB) ≈ 150.23 MHz
 - GBP ≈ 3 × 56.4 GHz
-     ≈  MHz (approx)
+     ≈ 169.2 MHz (approx)
 
 ### AC Response Without Load Capacitor
 
 ![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/AC%20analysis.jpeg?raw=true)
 
 ### AC Response With Load Capacitor (CL = 10 pF)
-
-![AC With Load](ac_with_cl.png)
 
 ![AC Response With Load Capacitor](AC_With_CL_Final.png)
 
@@ -431,28 +429,27 @@ From AC plot (with CL = 1 pF):
 | Voltage Gain (Av) | 3 | 3.7 | Channel length modulation and output resistance effects |
 | Gain (dB) | 9.54 dB | 11.36 dB | Practical gain reduced due to non-ideal device behavior |
 | 3 dB Bandwidth | — | 56  GHz | Limited by parasitic capacitances |
-| Unity Gain Bandwidth (UGB) | — | 150 MHz | Determined by dominant pole and device capacitances |
 | Gain Bandwidth Product (GBP) | — | ≈ 187 MHz | Product of midband gain and bandwidth |
 
 ----
+## INFERENCE
 
-## INFERENCE :
+1. The Common Source (CS) amplifier was effectively designed using 180 nm NMOS technology while satisfying the specified power limit of 0.5 mW.
 
-1. The Common Source (CS) amplifier was successfully designed using 180 nm NMOS technology under the given power constraint of 0.5 mW.
+2. The operating point (Q-point) was set at VDS ≈ VDD/2 (≈ 1 V), which enables maximum symmetrical signal swing at the output.
 
-2. The Q-point was fixed at VDS ≈ VDD/2 (≈ 1 V), ensuring maximum symmetrical output swing.
+3. The designed drain current of 0.2 mA was in close agreement with the simulated value (≈ 0.2 mA), confirming the accuracy of the DC design.
 
-3. The calculated drain current (0.2 mA) closely matched the simulated value (≈ 0.2 mA), validating the DC design.
+4. Transient analysis verified proper amplification along with a 180° phase shift between input and output signals.
 
-4. Transient analysis confirmed voltage amplification with 180° phase inversion.
+5. The obtained practical gain (≈ 3 or 9.54 dB) was slightly lower than the theoretical value due to effects such as channel length modulation and non-idealities.
 
-5. The practical gain (≈ 3 or 9.54 dB) was slightly lower than theoretical gain due to channel length modulation and non-ideal device effects.
+6. AC analysis indicated a midband gain of approximately 3 with a 3 dB bandwidth of about 56.4 GHz.
 
-6. AC analysis showed a midband gain of ≈  3 with 3 dB bandwidth ≈ 56.4  GHz.
+7. The Unity Gain Bandwidth (UGB) was observed to be approximately 150 MHz.
 
-7. The Unity Gain Bandwidth (UGB) was ≈ 150 MHz.
+8. When a load capacitance of 10 pF was introduced, the bandwidth decreased, while the midband gain remained almost unchanged.
 
-8. Adding load capacitance (10 pF) reduced bandwidth while maintaining nearly the same midband gain.
-
-9. Overall, simulation results closely agree with theoretical expectations, validating the design methodology.
+9. In conclusion, the simulation outcomes are in good agreement with theoretical predictions, thereby validating the design approach.
+n methodology.
 
