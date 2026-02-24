@@ -452,17 +452,6 @@ From AC plot (with CL = 1 pF):
 
 7. The Unity Gain Bandwidth (UGB) was ≈ 150 MHz.
 
-
-
-
-
-
-
-
-
-
-
-
 8. Adding load capacitance (10 pF) reduced bandwidth while maintaining nearly the same midband gain.
 
 9. Overall, simulation results closely agree with theoretical expectations, validating the design methodology.
