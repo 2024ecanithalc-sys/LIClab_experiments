@@ -248,7 +248,7 @@ Thus, RD ≈ 5 kΩ was selected to obtain VDS ≈ 1V.
 
 The DC sweep of input voltage was performed from 0 V to 2 V to observe variation in supply current and verify the power constraint.
 
-![DC Sweep Current](dc_sweep.png)
+![Image description](https://github.com/2024ecanithalc-sys/LIClab_experiments/blob/main/DCsweep.jpeg?raw=true)
 
 
 ---
